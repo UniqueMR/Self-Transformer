@@ -30,9 +30,9 @@ Encoder and Decoder is made of several EncoderLayer/DecoderLayer, including embe
 
 Embedding words has become standard practice in machine translation. When each word is fed into the network. Embedding will retrieve its vector. These vectors will then be learnt as parameters by the model.
 
-The positional encoding will make the position of a word make sense to the model. In other words, position encoding tell the model where each word locate in a sentence. The position-specific values are determined by formulas: $$PE(pos, 2i) = sin(pos/10000^{2i/d_{model}})$$
+The positional encoding will make the position of a word make sense to the model. In other words, position encoding tell the model where each word locate in a sentence. The position-specific values are determined by formulas:
 
-$$PE(pos, 2i+1) = cos(pos/10000^{2i/d_{model}})$$
+![](https://github.com/UniqueMR/Self-Transformer/blob/main/img/pe.png)
 
 The EncoderLayer and DecoderLayer is depicted as below.
 
@@ -47,9 +47,9 @@ An attention function can be described as mapping a query and a set of key-value
 From my perspective, attention is can be described as *soft index*. It means that the output value is not a single value, but a weighted sum of all values, where the weight of each value is decided by the similarity between a single key and the given query. The similarity can be calculated by the distance function.
 
 The scaled dot-product attention is calculated as below, where $Q$ is the query, $K$ is the key, $V$ is the value and $d_k$ is the dimension of key. 
-$$
-\operatorname{Attention}(Q, K, V)=\operatorname{softmax}\left(\frac{Q K^{T}}{\sqrt{d_{k}}}\right) V
-$$
+
+![](https://github.com/UniqueMR/Self-Transformer/blob/main/img/attention.png)
+
 MultiHead-Attention is based on this *Attention Mechanism*. It divides input into several heads before attention calculation. After that, the score results are concated altogether.
 
 ![](https://github.com/UniqueMR/Self-Transformer/blob/main/img/multihead-attention.jpg)
