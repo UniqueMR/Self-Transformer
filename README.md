@@ -30,9 +30,9 @@ Encoder and Decoder is made of several EncoderLayer/DecoderLayer, including embe
 
 Embedding words has become standard practice in machine translation. When each word is fed into the network. Embedding will retrieve its vector. These vectors will then be learnt as parameters by the model.
 
-The positional encoding will make the position of a word make sense to the model. In other words, position encoding tell the model where each word locate in a sentence. The position-specific values are determined by formulas: $PE(pos, 2i) = sin(pos/10000^{2i/d_{model}})$
+The positional encoding will make the position of a word make sense to the model. In other words, position encoding tell the model where each word locate in a sentence. The position-specific values are determined by formulas: $$PE(pos, 2i) = sin(pos/10000^{2i/d_{model}})$$
 
-$PE(pos, 2i+1) = cos(pos/10000^{2i/d_{model}})$
+$$PE(pos, 2i+1) = cos(pos/10000^{2i/d_{model}})$$
 
 The EncoderLayer and DecoderLayer is depicted as below.
 
